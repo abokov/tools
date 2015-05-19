@@ -1,0 +1,74 @@
+Index: smtpc_fsm.erl
+===================================================================
+--- smtpc_fsm.erl	(revision 153)
++++ smtpc_fsm.erl	(working copy)
+@@ -231,6 +231,37 @@
+ 	    {stop, Error, [], []}
+     end;
+ %%%----------------------------------------------------------------------
++%%% AUTH Command
++%%%----------------------------------------------------------------------
++smtp_cmd({auth, Login, Password}, From, State) ->
++%%    Msg = "AUTH LOGIN:" ++ Login ++ ">",
++    Msg = "AUTH LOGIN",
++    write(State#smtpc.socket, Msg),
++    read(State#smtpc.socket),
++    write(State#smtpc.socket, Login),
++    read(State#smtpc.socket),
++    write(State#smtpc.socket, Password),
++    case read(State#smtpc.socket) of
++	{250, Resp} -> 
++		gen_fsm:reply(From,{250,Resp}),
++	    {reply, ok, smtp_cmd, State#smtpc{state=rcpt}};
++	{334} -> 
++		Msg2 = "<" ++ Password ++ ">",
++		write(State#smtpc.socket, Msg2),
++	    {reply, ok, smtp_cmd, State#smtpc{state=rcpt}};
++
++	{511, Resp} -> 
++		gen_fsm:reply(From,{511,Resp}),
++	    {reply, ok, smtp_cmd, State#smtpc{state=rcpt}};
++	{Code, Resp} -> 
++		gen_fsm:reply(From,{Code,Resp}),
++	    {reply,ok,smtp_cmd, State};
++	Error -> 
++	    {stop, Error, [], []}
++    end;
++
++
++%%%----------------------------------------------------------------------
+ %%% VRFY Command
+ %%%----------------------------------------------------------------------
+ smtp_cmd({vrfy, Address}, From, State) ->
+Index: smtpc.erl
+===================================================================
+--- smtpc.erl	(revision 153)
++++ smtpc.erl	(working copy)
+@@ -38,7 +38,7 @@
+ -include("../include/smtp.hrl").
+ 
+ -export([connect/1,help/1,noop/1,quit/1,rcpt/2,rset/1,vrfy/2]).
+--export([connect/2,data/2,ehlo/2,etrn/2,expn/2,helo/2,mail/2]).
++-export([auth/3,connect/2,data/2,ehlo/2,etrn/2,expn/2,helo/2,mail/2]).
+ -export([sendmail/4,sendmail/5,sendmail/6]).
+ 
+ %%-------------------------------------------------------------------------
+@@ -73,6 +73,18 @@
+ ehlo(Pid,HostName) -> gen_fsm:sync_send_event(Pid, {ehlo,HostName}).
+ 
+ %%--------------------------------------------------------------------
++%% Function: auth(Pid,Login,Password)
++%%           Pid      = pid()
++%%           Login    = login like user@domain.com 
++%%           Password = password
++%%           Login and password should be Base64 encoded
++%% Descrip.: LOGIN AUTH 
++%% Returns : {Code,Response} - {250,String}
++%%--------------------------------------------------------------------
++auth(Pid,Login,Password) -> gen_fsm:sync_send_event(Pid, {auth,Login,Password}).
++
++
++%%--------------------------------------------------------------------
+ %% Function: etrn(Pid,Message)
+ %%           Pid   = pid()
+ %%           Queue = String()

@@ -1,0 +1,22 @@
+<!--
+The configuration override to define measurable capabilities which do not
+use WinMon.dll
+-->
+<overrides>
+    <!--
+    Use the Generic CPU Measurer
+    -->    
+    <Component Name="com.gigaspaces.management.system.cpu">
+	    <Parameter Name="cpuMonitor"
+                   Value="new org.jini.rio.qos.measurable.cpu.GenericCPUMeasurer()"/>
+    </Component>
+
+    <!--
+    Set the flatline monitor for diskspace
+    -->
+    <Component Name="com.gigaspaces.management.system.disk">
+        <Parameter Name="diskMonitor"
+            Value="new org.jini.rio.qos.measurable.FlatlineMonitor()"/>
+    </Component>
+
+</overrides>
