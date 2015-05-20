@@ -1,0 +1,295 @@
+ <!--- NAME is undefined  -->
+
+  <!-- Общие определения -->
+
+
+
+
+
+  
+
+<!--  -->
+
+<!-- Header.Html : start -->
+
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+  <meta name="Author" content="bokov@uc.ru">
+  <meta name="GENERATOR" content="Mozilla/4.76 [en] (Windows NT 5.0; U) [Netscape]">
+  <link rel="stylesheet" href="/CSS/kolxoz.css" type="text/css">
+  <title>- irulez.org : 192.168.50.246 - : Анкета будущего колхозника</title>
+</head>
+
+<!-- Header.Html : end -->
+
+        <!-- java_common.html -->
+<!-- Библитека стандартных функции JavaScript -->
+
+<SCRIPT LANGUAGE="JavaScript">
+
+//var err_flag=false;
+
+function error(field_name,field_value) {
+  var name=String("Неверное значение поля : ");
+  name=name+field_name; //name=name+" : "; name=name+field_value;
+  alert(name);
+//  err_flag=true;
+};
+
+function is_empty(f,field_name) {
+// var s=String(f.value);
+ if (f.value.length==0) {
+    error(field_name,f.value);
+    return false;
+ };
+// err_flag=false;
+ return true;
+};
+
+
+function is_account(f,field_name) {
+ var expr=new RegExp("[0-9][0-9][0-9][0-9][0-9]","g");
+ if (expr.test(f.value)==false) {
+    error(field_name,f.value);
+    return false;
+ };
+// err_flag=false;
+ return true;
+};
+
+
+function is_cellular_number(f,field_name) {
+ var expr=new RegExp("[0-9]\-[0-9][0-9][0-9]\-[0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9]","g");
+ if (expr.test(f.value)==false) {
+    error(field_name,f.value);
+    return false;
+ };
+// err_flag=false;
+ return true;
+};
+
+
+function is_email(f,field_name) {
+ var expr=new RegExp("^[a-zA-Z0-9_\\-]+\\@([a-zA-Z0-9_\\-]+\\.)+[a-zA-Z0-9_\\-]+[ ]*$","g");
+ if (expr.test(f.value)==false) {
+    error(field_name,f.value);
+    return false;
+ };
+// err_flag=false;
+ return true;
+};
+
+function is_date(f,field_name) {
+ var expr=new RegExp("[0-3][0-9]\\-[0-1][0-9]\\-[1-2][0-9][0-9][0-9]","g");
+ if (expr.test(f.value)==false) {
+    error(field_name,f.value);
+    return false;
+ };
+// err_flag=false;
+ return true;
+};
+
+
+</SCRIPT>
+
+
+<!-- java_scripts.html -->
+<!-- java_common.html Must be include before this file! -->
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function show_data() {
+ var max=13;  var i;  
+ var form_name = new Array(max); var form_value = new Array(max);
+ for (i=0;i<max;i++) {
+    form_name[i]=document.forms[0].elements[i].name;
+    form_value[i]=document.forms[0].elements[i].value;
+ };
+ document.writeln("Form data : <br>");
+ for (var i=0;i<max;i++) {
+   document.writeln("<br>     ",form_name[i]," \t =  ",form_value[i],"");
+ };
+};
+
+function init_values() {  // специяльная обработка
+  if (document.forms[0].SubscribeMe.checked) 
+    document.forms[0].Value_SubscribeMe_Checked.value="CHECKED";
+
+// alert(document.forms[0].Education.value);
+  var counter=1;  var i;
+  for (i=0; i<document.forms[0].Education.length;i++) 
+    if (document.forms[0].Education[i].selected) {
+       if (document.forms[0].Education[i].value=="BalletSchool") 
+         document.forms[0].Value_BalletSchool_selected.value="SELECTED";
+
+       if (document.forms[0].Education[i].value=="CommonJail")
+         document.forms[0].Value_CommonJail_selected.value="SELECTED";
+
+       if (document.forms[0].Education[i].value=="LifeSchool")
+         document.forms[0].Value_LifeSchool_selected.value="SELECTED";
+
+       if (document.forms[0].Education[i].value=="KinderGarten")
+         document.forms[0].Value_KinderGarten_selected.value="SELECTED";
+
+       if (document.forms[0].Education[i].value=="LiterarySociety")
+         document.forms[0].Value_LiterarySociety_selected.value="SELECTED";
+
+       if (document.forms[0].Education[i].value=="PrimarySchool")
+         document.forms[0].Value_PrimarySchool_selected.value="SELECTED";
+
+       if (document.forms[0].Education[i].value=="ZaborAcademia") 
+         document.forms[0].Value_ZaborAcademia_selected.value="SELECTED";
+
+       if (document.forms[0].Education[i].value=="JuvenileSchool") 
+         document.forms[0].Value_JuvenileSchool_selected.value="SELECTED";
+    };
+};
+
+
+
+function check_form() {
+  init_values();
+  if (document.forms[0].CheckByJava.checked==false) {
+     return true;
+  };
+
+  if (is_empty(document.forms[0].Name,'Имя')==false)
+    return false;
+
+  if (is_account(document.forms[0].PersonalAccount,'Счет')==false)
+    return false;
+
+  if (is_cellular_number(document.forms[0].CellularNumber,'Номер сотового телефона')==false)
+    return false;
+
+  if (is_email(document.forms[0].email,'e-mail')==false)
+    return false;
+
+  if (is_date(document.forms[0].birth_date,'Дата рождения')==false)
+    return false;
+
+  return true;
+};
+
+
+
+</SCRIPT>
+
+
+<body class="BodyStyle">
+
+<hr width="100%" size="2" align="left" noshade="noshade">
+
+<!-- Супер форма-->
+
+
+<p class="HeaderStyle">Анкета для вступления в колхоз</p>
+
+<form method="post" 
+   action="/isapi/form2_isapi.dll?Action=RecieveForm" 
+   onSubmit="return(check_form());">
+
+<input type="hidden" name="Action" value="RecieveForm">
+
+<pre>
+
+<span class="FieldNameStyle">Имя : </span> <input 
+  type="text" size="48" MAXLENGTH="120" name="Name" 
+  onblur="is_empty(this.form.Name,'Имя')"
+  value="Оглы-Аль-Сарай Иванович Пипелатц"> <span 
+  class="CommentStyle">Укажите имя</span> <span
+  class="ErrorStyle">  </span>
+
+
+<span class="FieldNameStyle">Лицевой счет : </span> <input 
+  type="text" size="12" MAXLENGTH="5" name="PersonalAccount" 
+  onblur="is_account(this.form.PersonalAccount,'Лицевой счет')"
+  value="12345"> <span 
+class="CommentStyle">Номер счета в банке ( 5 цифр )</span> <span 
+   class="ErrorStyle">  </span>
+
+<span class="FieldOptinalNameStyle">Кличка коровы ( если есть ) : </span> <input 
+    type="text" size="50" MAXLENGTH="50" name="PetName" 
+  onblur="is_empty(this.form.PersonalAccount,'Лицевой счет')"
+  value="Летящая Над Облаками"> <span 
+class="CommentStyle">Имя коровы</span> <span 
+   class="ErrorStyle">  </span>
+
+<!-- номер сотовоого -->
+<span class="FieldNameStyle">Номер сотового телефона : </span> <input 
+    type="text" size="15" MAXLENGTH="15" name="CellularNumber" 
+    onblur="is_cellular_number(this.form.CellularNumber,'Номер сотового телефона')"
+    value="7-095-947-82-11"> <span
+class="CommentStyle">Номер в формате 7-XXX-YYY-YY-YY</span> <span 
+  class="ErrorStyle">  </span>
+<!-- e-mail      -->
+<span class="FieldNameStyle">e-mail : </span> <input 
+    type="text" size="48" MAXLENGTH="120"  name="email" 
+    onblur="is_email(this.form.email,'e-mail')"
+    value="petrov@ivanov.net"><span
+ class="ErrorStyle">  </span>
+
+<!-- возраст -->
+<span class="FieldNameStyle"> Дата рождения : </span> <input 
+    type="text" size="48" MAXLENGTH="120"  name="birth_date" 
+    onblur="is_date(this.form.birth_date,'Дата рождения')"
+    value="27-10-1956"> <span
+ class="CommentStyle">Дата в формате - ДД-ММ-ГГГГ</span> <span 
+  class="ErrorStyle">  </span>
+<!--  ПОЛ   -->
+<span class="FieldNameStyle">Половая принадлежность</span> 
+<INPUT type=radio name="Sex" value="Male"       > Я - Мужчина
+<INPUT type=radio name="Sex" value="Female"     > Я - Женщина
+<INPUT type=radio name="Sex" value="Uncertain" CHECKED  > Я пока неопределился
+<INPUT type=radio name="Sex" value="Martial"    > Я - Марсианин <span
+  class="ErrorStyle">  </span>
+
+<span class="FieldNameStyle">Потребляемое количество спирта ( в стаканах ) : </span> <select
+ name="DrinkinLevel" size="1">
+<option value="Sucker"          >менее 1 стакана</option>
+<option value="Beginner"        >1-2 стакана</option>
+<option value="YoungDrunkard"    SELECTED >от 2 до 5 стаканов</option>
+<option value="HonouredDrunkard"  >не менее 5 стаканов</option>
+</select> <span class="ErrorStyle">  </span>
+
+<span class="FieldNameStyle">Полученное образование</span> 
+<select size="7" name="Education" multiple>
+<option value="BalletSchool"     >Балетная школа ирландских народных танцев</option>
+<option value="CommonJail"          >Тюрьма общего типа</option>
+<option value="LifeSchool"      SELECTED >Суровая школа жизни</option>
+<option value="KinderGarten"     >Детский сад</option>
+<option value="LiterarySociety" SELECTED >Литературный кружок по изучению переписки тов.Маркса и Кауцкого</option>
+<option value="PrimarySchool"    >Начальная школа</option>
+<option value="ZaborAcademia"    >Международная академия е-бизнеса и маркетинга имени В.В.Путина</option>
+<option value="JuvenileSchool"   >Школа производственной подготовки несовершеннолетних делинквентов</option>
+</select> <span class="ErrorStyle">  </span>
+
+
+<span class="FieldNameStyle">Получать новости по почте </span><input 
+  type=checkbox name="SubscribeMe" value="OK" CHECKED> <span
+ class="ErrorStyle">  </span>
+<span class="FieldNameStyle">Проверять значения используя JavaScript</span><input 
+  type=checkbox name="CheckByJava" value="OK" CHECKED>
+<input type="submit" value=" OK.. Send form..." hidden>
+</pre>
+
+<input type="hidden" name="Value_BalletSchool_selected" value="">
+<input type="hidden" name="Value_CommonJail_selected" value=""> 
+<input type="hidden" name="Value_LifeSchool_selected" value=""> 
+<input type="hidden" name="Value_KinderGarten_selected" value=""> 
+<input type="hidden" name="Value_LiterarySociety_selected" value=""> 
+<input type="hidden" name="Value_PrimarySchool_selected" value=""> 
+<input type="hidden" name="Value_ZaborAcademia_selected" value=""> 
+<input type="hidden" name="Value_JuvenileSchool_selected" value=""> 
+<input type="hidden" name="Value_SubscribeMe_Checked" value=""> 
+
+
+</form>
+
+
+
+
+</p>
+</body>

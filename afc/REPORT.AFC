@@ -1,0 +1,18 @@
+ The Advanced File Compare.
+ AFC Version. 3.00. Full.  FreeWare. 24 March 2000
+ Alexey Y. Bokow. 2000. Russia/Moscow. yb@aha.ru;arxive@netscape.net
+ MEPhI rulez...
+ Compare mode:BINARY. Compare model:SIMPLE.
+ Output performed:ONLY TO FILE. Output mode:FULL.
+
+ Information about FIRST file.
+   Name:1.bin.
+   Size : 23216. Attribut: ARCHIVE .
+   Creations DATE(Year/Month/Day) and TIME:2000/03/24  13:35:12.
+ 
+ Inform tion about SECOND file.
+   Name:2.bin.
+   Size : 23216. Attribut: ARCHIVE .
+   Creations DATE(Year/Month/Day) and TIME:2000/03/24  13:35:12.
+ Offset     Dec   Hex    ASCII Bin        Dec   Hex    ASCII Bin 
+   NO differences encountered.

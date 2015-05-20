@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="..\EXE\Http_Send.exe"/>
+    <OBJFILES value="..\OBJ\http_send.obj ..\OBJ\http_req.obj ..\OBJ\_test.obj"/>
+    <RESFILES value=""/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="..\..\..\STND_LIB\OBJ\STND_LIB.lib"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value="rtl.bpi vcl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi vcldb.bpi adortl.bpi 
+      ibsmp.bpi bdertl.bpi vcldbx.bpi qrpt.bpi teeui.bpi teedb.bpi tee.bpi 
+      dss.bpi teeqr.bpi ibxpress.bpi dclocx.bpi"/>
+    <PATHCPP value=".;.."/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG;"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL;USEPACKAGES"/>
+    <MAINSOURCE value="Http_Send.bpf"/>
+    <INCLUDEPATH value="..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common;..\..\..\..\Include"/>
+    <LIBPATH value="..\;..;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-src_suffix cpp -D_DEBUG -I..\. -I.. -I$(BCB)\include -I$(BCB)\include\vcl 
+      -I..\..\..\Common -I..\..\..\..\Include -boa"/>
+    <CFLAG1 value="-vGc -vGt -vGd -Od -w -xf -xp -f- -X- -r- -a1 -b- -k -y -v -vi- -tWC -tWM -c"/>
+    <PFLAGS value="-N2..\OBJ -N0..\OBJ -$YD -$W -$O- -$A1 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-I..\OBJ -D&quot;&quot; -ap -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0x32.obj $(PACKAGES) $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="cg32.lib $(LIBFILES) $(LIBRARIES) import32.lib cw32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="..\..\..\STND_LIB\OBJ\STND_LIB.lib" FORMNAME="" UNITNAME="STND_LIB.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Http_Send.bpf" FORMNAME="" UNITNAME="Http_Send" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\http_send.cpp" FORMNAME="" UNITNAME="Http_Send" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\http_req.cpp" FORMNAME="" UNITNAME="http_req" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\_test.cpp" FORMNAME="" UNITNAME="_test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <FILES>
+    <FILE type="override" value="..\http_send.cpp" translator="Auto">
+    </FILE>
+  </FILES>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=21
+Item0=..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common;..\..\..\..\Include
+Item1=..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common;..\..\..\..\Include
+Item2=..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common;..\..\..\Include
+Item3=..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common;..\..\..\Include;
+Item4=..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common
+Item5=..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common;
+Item6=..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common;..\..\..\CServ\Common
+Item7=..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common\;..\..\..\CServ\Common;
+Item8=..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\Common\
+Item9=..;$(BCB)\include;$(BCB)\include\vcl;..\..\Common
+Item10=..;$(BCB)\include;$(BCB)\include\vcl;..\..\Common\
+Item11=..\;$(BCB)\include;$(BCB)\include\vcl;..\..\Common;
+Item12=..\;$(BCB)\include;$(BCB)\include\vcl;
+Item13=..\;..;..\CSERV;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\INCLUDE;..\..\..\common;..\..\..\CServ\WebGate
+Item14=..\;..;..\CSERV;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\INCLUDE;..\..\..\common;..\..\..\CServ\WebGate;
+Item15=..\;..;..\CSERV;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\INCLUDE;..\..\..\common
+Item16=..\;..\CSERV;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\INCLUDE;..\..\..\common
+Item17=..\CSERV;..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\INCLUDE;..\..\..\common
+Item18=..\;..;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\INCLUDE;..\..\..\common
+Item19=..\;..;$(BCB)\include;$(BCB)\include\vcl;L:\Union\INCLUDE;L:\Union\ide\common
+Item20=..\;..;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=6
+Item0=..\;..;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..;$(BCB)\lib\obj;$(BCB)\lib
+Item2=..\;..;..\CSERV;$(BCB)\lib\obj;$(BCB)\lib
+Item3=..\;..\CSERV;..;$(BCB)\lib\obj;$(BCB)\lib
+Item4=..\CSERV;..\;..;$(BCB)\lib\obj;$(BCB)\lib
+Item5=..\;..;$(BCB)\lib\obj;$(BCB)\lib;
+
+[HistoryLists\hlDebugSourcePath]
+Count=4
+Item0=$(BCB)\source\vcl;
+Item1=$(BCB)\source\vcl;L:\Union\MYTNIK\OS_MODEL
+Item2=$(BCB)\source\vcl;L:\UNION\ALLSRC
+Item3=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=5
+Item0=_DEBUG;
+Item1=_DEBUG;TOOLKIT2=1;CARDPP=1;__RUN_FROM_IDE__=1;GATE_TYPE=CGI_EXE
+Item2=_DEBUG;TOOLKIT2=1;CARDPP=1;__RUN_FROM_IDE__=1;
+Item3=_DEBUG;TOOLKIT2=1;CARDPP=1;
+Item4=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=1
+Item0=..\OBJ
+
+[HistoryLists\hlFinalOutputDir]
+Count=3
+Item0=..\EXE\
+Item1=..\OBJ\
+Item2=..\OBJ
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl;
+
+[Parameters]
+RunParams=-Urulez.org/isapi/form2_isapi.dll -I192.168.50.246:80 -Xq -C10 -RDdata.html -RHheader.html -Xwa
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=1
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

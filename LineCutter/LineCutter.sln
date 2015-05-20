@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LineCutter", "LineCutter.vcproj", "{ECDE1681-EB9E-4EB0-921F-7D9059A6F8F1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{ECDE1681-EB9E-4EB0-921F-7D9059A6F8F1}.Debug.ActiveCfg = Debug|Win32
+		{ECDE1681-EB9E-4EB0-921F-7D9059A6F8F1}.Debug.Build.0 = Debug|Win32
+		{ECDE1681-EB9E-4EB0-921F-7D9059A6F8F1}.Release.ActiveCfg = Release|Win32
+		{ECDE1681-EB9E-4EB0-921F-7D9059A6F8F1}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
